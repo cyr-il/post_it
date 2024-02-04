@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vision - Globale{% endblock %}
+
+{% block body %}
+
+<div id="page-content-wrapper">
+    <div class="row">
+        <div class="kanban-board">
+        {% for column in columns %}
+            <div class="column col-4" id="col-{{column.id}}" data-etat="{{column.etat}}" data-color="{{column.color}}">
+                <h2 class="text-center">{{column.title}}</h2>
+                {% for postit in postits %}
+                    {% if postit.state == column.etat %}
+                        <div class="card card-{{postit.color}} mx-auto" data-postit-id="{{postit.id }}" draggable="true" style="width: 30rem;">
+                            <div class="card-body">
+                                <h5 class="card-title d-flex justify-content-between">
+                                    {{ postit.ticketNumber }}
+                                    {% if postit.state != 'pret' %}                                     
+                                        <button type="button" class="btn btn-dark ml-auto">
+                                            <a href="{{ path('app_post_it_edit', {'id': postit.id}) }}" class="text-white text-decoration-none">Éditer</a>
+                                        </button>
+                                        <button type="button" class="btn btn-danger ml-auto">
+                                            <a href="{{ path('app_post_it_delete', {'id': postit.id}) }}" class="text-white text-decoration-none">Supprimer</a>
+                                        </button>
+                                    {% endif %}
+                                </h5>                             
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Demandé par : {{postit.requester}}</li>
+                                <li class="list-group-item">Pour : {{postit.recipient}}</li>
+                                <li class="list-group-item">Deadline : {{postit.deadline|date('d-m-Y')}}</li>
+                            </ul>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

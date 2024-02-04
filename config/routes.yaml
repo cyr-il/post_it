@@ -1,0 +1,11 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+deplacer_postit:
+    path: '/deplacer-postit/{id}/{nouvelEtat}/{color}'
+    controller: 'App\Controller\PostItController::deplacerPostit'
+    methods: ['POST']
+
+

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block title %}Éditez un post-it{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-6 mx-auto mt-4">
+        <h1>Post-it #{{postit.id}}</h1>
+            {{ include('post_it/_form.html.twig', {'submitButtonText': 'Valider l\'édition'}) }}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<div class="d-flex mt-5" id="wrapper">
+    <!-- Sidebar-->
+    <div class="border-end bg-white" id="sidebar-wrapper">
+        <div class="sidebar-heading border-bottom bg-light">Gestion des tickets</div>
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/">Vision globale</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{path('app_post_it')}}">Nouveau post-it</a>
+
+        </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        {# templates/navbar.html.twig #}
+
+<form class="form-inline-sm">
+    <input class="form-control-sm ms-4 mr-sm-2" type="search" placeholder="Rechercher" aria-label="Rechercher" id="search-input">
+    <button class="btn btn-outline-success mt-1 mb-1" type="submit">Rechercher</button>
+</form>
+
+
+
+
